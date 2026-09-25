@@ -5625,7 +5625,7 @@ SELECT
     CONCAT(sp.first_name, ' ', sp.last_name) AS sales_person,
     CONCAT(c.first_name, ' ', c.last_name) AS customer,
     p.product_name,
-    s.catergory,
+    p.category,
     s.quantity,
     s.unit_price,
     s.discount_pct,
