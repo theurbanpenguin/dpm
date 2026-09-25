@@ -5614,4 +5614,25 @@ DBCC CHECKIDENT ('dbo.customers', RESEED, 400);
 DBCC CHECKIDENT ('dbo.products', RESEED, 34);
 DBCC CHECKIDENT ('dbo.sales', RESEED, 5000);
 
+
 COMMIT TRANSACTION;
+
+CREATE OR ALTER VIEW vw_sales AS
+SELECT
+    s.sale_id,
+    s.sale_date,
+    CONCAT(sp.first_name, ' ', sp.last_name) AS sales_person,
+    CONCAT(c.first_name, ' ', c.last_name) AS customer,
+    p.product_name,
+    s.catergory,
+    s.quantity,
+    s.unit_price,
+    s.discount_pct,
+    s.total_amount
+FROM sales AS s
+JOIN sales_people AS sp
+      ON s.sales_person_id = sp.sales_person_id
+JOIN customers AS c
+      ON s.customer_id = c.customer_id
+JOIN products AS p
+      ON s.product_id = p.product_id;
