@@ -12,15 +12,18 @@
 --     VALUES constructor limit.
 -- =====================================================================
 
+USE master;
+GO
+DROP DATABASE IF EXISTS UrbanSales;
+GO
+CREATE DATABASE UrbanSales;
+GO
+USE UrbanSales;
+GO
+
 SET XACT_ABORT ON;
 BEGIN TRANSACTION;
 
--- Drop existing tables (children before parents)
-DROP TABLE IF EXISTS dbo.sales;
-DROP TABLE IF EXISTS dbo.customers;
-DROP TABLE IF EXISTS dbo.sales_people;
-DROP TABLE IF EXISTS dbo.products;
-DROP TABLE IF EXISTS dbo.regions;
 
 -- =====================================================================
 -- Schema
