@@ -5640,3 +5640,4 @@ JOIN customers AS c
       ON s.customer_id = c.customer_id
 JOIN products AS p
       ON s.product_id = p.product_id;
+GO
